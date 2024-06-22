@@ -1,0 +1,22 @@
+#! /bin/sh
+
+# Autostart
+pgrep -x sxhkd > /dev/null || sxhkd &
+picom --config $HOME/.config/picom/picom.conf &
+polybar &
+bluetoothctl power on &
+setxkbmap -option grp:alt_space_toggle us,ru &
+
+# Background
+feh --bg-scale root/assets/pictures/space_013.jpg
+
+# Workspaces
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# Others
+bspc config pointer_follows_focus	true
+bspc config border_width         	2
+bspc config window_gap           	8
+bspc config split_ratio          	0.52
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
